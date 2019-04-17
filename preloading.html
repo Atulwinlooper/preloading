@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title> preloading gif</title>
+	<link rel="stylesheet" href="loading.css">
+</head>
+<body>
+	<div id= "loader"></div>
+	<div id="content"></div>
+	<script type="text/javascript">
+
+		var loader;
+		function loadnow(opacity)
+		{
+			if(opacity <= 0){
+				displayContent();
+
+			}
+			else{
+				loader.style.opacity = opacity;
+				window.setTimeout(function(){
+					loadnow(opacity - 0.05)
+				}, 100);
+			}
+		}
+		function displayContent(){
+			loader.style.display = 'none';
+			document.getElementById('content').style.display = 'block';
+		}
+		document.addEventListener("DOMContentloaded",function(){
+			loader.getElementById('loader');
+			loadnow(1);
+		});
+	</script>
+
+</body>
+</html> 
